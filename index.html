@@ -666,21 +666,25 @@
             background: var(--toned-gradient-hovered);
         }
 
-
         /* Contact Section */
         .contact {
             padding: 100px 0;
-            background: var(--toned-dark);
+            background: #171a56;
             position: relative;
             overflow: hidden;
         }
+        
+        #contact.contact {
+            background: white !important;
+        }
+
 
         .contact-alt {
             background: white;
         }
 
         .contact-alt .section-title {
-            color: var(--toned-dark);
+            color: #171a56;
         }
 
         .contact::before {
@@ -690,7 +694,7 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, #cccccc, transparent);
+            background: linear-gradient(90deg, transparent, #9687eb, transparent);
         }
 
         .contact-wrapper {
@@ -715,65 +719,37 @@
             height: auto;
         }
 
-        .contact-form {
-            flex: 1;
-            max-width: 600px;
-            background: var(--toned-dark);
+        .contact-box {
+            max-width: 500px;
+            margin: 30px auto 0;
             padding: 40px;
-            border-radius: 25px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;    
-        }
-    
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px 20px;
-            font-size: 16px;
-            border: 2px solid var(--toned-border);
+            background: linear-gradient(135deg, #514ceb, #171a56);
             border-radius: 15px;
-
-            background: rgba(255, 255, 255, 0.05); /* same as info-card */
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px); /* for Safari */
-            
+            box-shadow: 0 10px 30px rgba(23, 23, 86, 0.1);
+            text-align: center;
+            font-size: 1.1rem;
             color: white;
-            box-shadow: 0 10px 30px rgba(86, 86, 86, 0.1);
-            transition: all 0.3s ease;
+            line-height: 1.8;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
-        /* Placeholder styling for better glass effect */
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Focus effect similar to info-card hover */
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--toned-border-hovered);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 0 3px rgba(228, 228, 228, 0.2);
-        }
-
-        input:focus,
-        textarea:focus {
-            outline: none !important;
-            box-shadow: none !important;
+        .contact-box:hover {
+            transform: rotateY(8deg) rotateX(3deg) scale(1.02);
+            box-shadow: 0 15px 40px rgba(23, 23, 86, 0.3);
         }
 
 
-        /* Keep consistent sizing for textarea */
-        .form-group textarea {
-            height: 150px;
-            min-height: 55px;
-            resize: vertical;
-        }
+		.contact-box a {
+			color: #ffffff;
+			text-decoration: none;
+			font-weight: bold;
+		}
+
+		.contact-box a:hover {
+			text-decoration: underline;
+		}
 
 
         /* Footer */
@@ -965,90 +941,38 @@
                 font-size: 0.8rem;
             }
 
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background: #171a56;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        #contact.contact {
-            background: white !important;
-        }
+            .contact-wrapper {
+                position: relative;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
 
+            .contact-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 700px;
+                height: 700px;
+                align-content: left;
+                margin-left: -100px;
+                margin-top: -20px;
+                z-index: 0;
+            }
 
-        .contact-alt {
-            background: white;
-        }
+            .contact-image img {
+                visibility: hidden;
+                object-fit: cover;
+                border-radius: 0; 
+            }
 
-        .contact-alt .section-title {
-            color: #171a56;
-        }
+            .contact-form {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                padding: 30px;
+            }
 
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #9687eb, transparent);
-        }
-
-        .contact-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-        }
-
-        .contact-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .contact-image img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .contact-box {
-            max-width: 500px;
-            margin: 30px auto 0;
-            padding: 40px;
-            background: linear-gradient(135deg, #514ceb, #171a56);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(23, 23, 86, 0.1);
-            text-align: center;
-            font-size: 1.1rem;
-            color: white;
-            line-height: 1.8;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-
-        .contact-box:hover {
-            transform: rotateY(8deg) rotateX(3deg) scale(1.02);
-            box-shadow: 0 15px 40px rgba(23, 23, 86, 0.3);
-        }
-
-
-		.contact-box a {
-			color: #ffffff;
-			text-decoration: none;
-			font-weight: bold;
-		}
-
-		.contact-box a:hover {
-			text-decoration: underline;
-		}
 
 
             .instagram-grid {
